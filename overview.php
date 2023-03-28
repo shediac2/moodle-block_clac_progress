@@ -23,15 +23,15 @@
  */
 
 // Include required files.
-defined('MOODLE_INTERNAL') || die();
+//defined('MOODLE_INTERNAL') || die();
 require_once(dirname(__FILE__) . '/../../config.php');
 require_login();
 require_once($CFG->dirroot.'/local/clac/lib.php');
 require_once($CFG->dirroot.'/blocks/clac_progress/locallib.php');
 
-use block_clac_progress\completion_progress;
-
+//use block_clac_progress\completion_progress;
 // Gather form data.
+
 $id       = required_param('instanceid', PARAM_INT);
 $courseid = required_param('courseid', PARAM_INT);
 $role     = optional_param('role', 0, PARAM_INT);
@@ -65,11 +65,11 @@ require_capability('block/clac_progress:overview', $blockcontext);
 
 $roleoptions = block_clac_progress_student_list();
 
-$output = $PAGE->get_renderer('block_completion_progress');
+$output = $PAGE->get_renderer('block_clac_progress');
 
 // Start page output.
 echo $output->header();
-echo $output->container_start('block_completion_progress');
+echo $output->container_start('block_clac_progress');
 
 echo $output->container_start('progressoverviewmenus');
 if ($roleoptions) {

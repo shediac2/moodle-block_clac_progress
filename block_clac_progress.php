@@ -131,11 +131,13 @@ class block_clac_progress extends block_base {
             $complete = round($complete, 2);
         }
         $this->content->text = '<progress id="file" max="100" value="'.$complete.'"> </progress><br> '.$complete.' % complete';
-        $parameters = array('instanceid' => $this->instance->id, 'courseid' => $COURSE->id);
-        $url = new moodle_url('/blocks/clac_progress/overview.php', $parameters);
-        $label = get_string('overview', 'block_clac_progress');
-        $options = array('class' => 'overviewButton');
-        $this->content->text .= $OUTPUT->single_button($url, $label, 'get', $options);
+        if (is_siteadmin()) {
+            $parameters = array('instanceid' => $this->instance->id, 'courseid' => $COURSE->id);     
+            $url = new moodle_url('/blocks/clac_progress/overview.php', $parameters);
+            $label = get_string('overview', 'block_clac_progress');
+            $options = array('class' => 'overviewButton');
+            $this->content->text .= $OUTPUT->single_button($url, $label, 'get', $options);
+        }    
         return;
 
     }

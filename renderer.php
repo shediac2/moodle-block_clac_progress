@@ -15,15 +15,32 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Clac Progress block English language translation
+ * Clac Progress block renderer.
  *
  * @package    block_clac_progress
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Clac Completion Progress';
-$string['progress'] = 'Progress';
-$string['selectstudent'] = 'Please select a student';
-$string['sendemail'] = 'Send report through email to student';
-$string['reportsent'] = 'Report has been sent';
-$string['overview'] = 'Overview of Students';
+namespace block_clac_progress\output;
+
+use plugin_renderer_base;
+use html_writer;
+
+/**
+ * Completion Progress block renderer.
+ *
+ * @package    block_completion_progress
+ * @copyright  2020 Jonathon Fowler <fowlerj@usq.edu.au>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class renderer extends plugin_renderer_base {
+    /**
+     * Generate a progress bar.
+     * @param completion_progress $progress
+     * @return string HTML
+     */
+    public function render_clac_progress(completion_progress $progress) {
+        global $CFG, $USER;
+
+    }
+}
